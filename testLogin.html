@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap/jquery-3.2.1.min.js"></script>
+    <style>
+        input,
+        button {
+            display: block;
+            margin: 10px auto;
+        }
+
+        .loginForm {
+            width: 50%;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        button {
+            width: 100%;
+        }
+        .login-text{
+            text-align: center;
+            margin: 0px;
+        }
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="d-flex flex-column justify-content-center align-items-center" style="height: 96vh;">
+        <h1 class="login-text">Login</h1>
+        <form class="loginForm" id="loginForm">
+            <label>Username:</label>
+            <input class="form-control" type="text" id="username" name="username">
+            <div class="error-message" id="username-error"></div>
+            <label>Password:</label>
+            <input class="form-control" type="password" id="password" name="password">
+            <div class="error-message" id="password-error"></div>
+            <button class="btn btn-primary" type="submit" id="loginBtn">Login</button>
+        </form>
+    </div>
+    <script>
+        const form = document.getElementById('loginForm');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const loginBtn = document.getElementById('loginBtn');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = usernameInput.value;
+            const password = passwordInput.value;
+            const usernameErrorElement = document.getElementById('username-error');
+            const passwordErrorElement = document.getElementById('password-error');
+            usernameErrorElement.innerText = '';
+            passwordErrorElement.innerText = '';
+            if (username === '') {
+                usernameErrorElement.innerText = 'Username is required';
+            }
+            if (password === '') {
+                passwordErrorElement.innerText = 'Password is required';
+            }
+            if (username === '' || password === '') {
+                return;
+            }
+            if (username === 'admin' && password === 'password') {
+                alert('Login Successful');
+            } else {
+                alert('Invalid Credentials');
+            }
+        });
+        passwordInput.addEventListener('paste', (e) => e.preventDefault());
+        passwordInput.addEventListener('drop', (e) => e.preventDefault());
+        passwordInput.addEventListener('dragover', (e) => e.preventDefault());
+        usernameInput.autocomplete = 'off';
+        passwordInput.autocomplete = 'off';
+        passwordInput.addEventListener('input', () => {
+            passwordInput.type = 'text';
+            setTimeout(() => passwordInput.type = 'password', 0);
+        });
+        let loginInProgress = false;
+        loginBtn.addEventListener('click', (e) => {
+            if (loginInProgress) {
+                e.preventDefault();
+                return;
+            }
+            loginInProgress = true;
+            setTimeout(() => loginInProgress = false, 1000);
+        });
+    </script>
+</body>
+
+</html>
