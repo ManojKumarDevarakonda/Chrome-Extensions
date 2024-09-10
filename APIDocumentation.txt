@@ -1,0 +1,47 @@
+Chrome Extension Project Documentation
+=====================================
+
+Overview
+------------
+
+This Chrome Extension project is designed to provide a brief explanation on how to make Chrome Extensions with normal HTML, CSS, and JS, and jQuery.
+
+Components and Modules
+-------------------------
+
+- index.html: The main HTML file that contains the basic structure of the extension's popup.
+- bootstrap/bootstrap.bundle.min.js: The Bootstrap JavaScript bundle used for styling and layout.
+- bootstrap/jquery-3.2.1.min.js: The jQuery library used for DOM manipulation and event handling.
+- assets/extension.png: The icon used for the extension.
+- README.md: This documentation file.
+
+Flow and Workflows
+---------------------
+
+- User Interaction:
+	+ The user clicks on the extension's icon in the Chrome toolbar.
+	+ The popup is displayed, showing the HTML content from `index.html`.
+	+ The user can interact with the popup, clicking on buttons or links.
+- API Calls:
+	+ The extension makes API calls to external services (not implemented in this example).
+	+ The API calls are handled using JavaScript and jQuery.
+
+Technical Details
+--------------------
+
+- HTML: The HTML structure is defined in `index.html`.
+- CSS: The CSS styles are defined in the Bootstrap CSS files.
+- JavaScript: The JavaScript code is defined in the Bootstrap JavaScript bundle and the jQuery library.
+- API: The API calls are not implemented in this example.
+
+Infrastructure and Deployment
+-------------------------------
+
+- Chrome Web Store: The extension is deployed to the Chrome Web Store.
+- Chrome Extension Manifest: The manifest file (`manifest.json`) is used to define the extension's metadata and permissions.
+
+Testing and Quality Assurance
+-------------------------------
+
+- Manual Testing: The extension is tested manually by clicking on the icon and interacting with the popup.
+- Automated Testing: Automated testing is not implemented in this example.
